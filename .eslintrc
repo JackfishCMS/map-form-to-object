@@ -1,22 +1,16 @@
 {
-  "extends": "standard",
-  "globals": {
-    "fetch": true,
-    "describe": true,
-    "expect": true,
-    "it": true,
-    "Backbone": true
-  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
   "rules": {
-    "jsx-quotes": [2, "prefer-double"],
-    "object-curly-spacing": [ "error", "always" ],
-    "array-bracket-spacing": [ "error", "always" ]
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "always"]
   },
   "env": {
     "es6": true,
     "node": true,
-    "mocha": true,
-    "jquery": true,
-    "browser": true
-  }
+    "jest": true,
+    "browser": true,
+    "jquery": true
+  },
+  "globals": {}
 }
