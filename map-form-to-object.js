@@ -4,7 +4,7 @@ const schemata = require('schemata')
 /*
  * Takes a jQuery `form` object and extracts values for `schema` properties.
  */
-function mapFormToObject (form, schema) {
+function mapFormToObject(form, schema) {
   const formData = {}
   const properties = schema.getProperties()
 
@@ -22,7 +22,11 @@ function mapFormToObject (form, schema) {
       formData[key] = formValue
 
       // Use schemata to correctly cast form values e.g Dates
-      if (properties[key].type) formData[key] = schemata.castProperty(properties[key].type, formData[key])
+      if (properties[key].type)
+        formData[key] = schemata.castProperty(
+          properties[key].type,
+          formData[key]
+        )
     }
   })
 
@@ -33,7 +37,7 @@ function mapFormToObject (form, schema) {
  * Get the value from `form` for an input name matching
  * the schema property name `key`.
  */
-function getValue (form, key, type) {
+function getValue(form, key, type) {
   const $input = form.find(':input[name=' + key + ']')
 
   switch ($input.attr('type')) {
@@ -57,9 +61,12 @@ function getValue (form, key, type) {
  * This function takes the property's type from the schema to decide which
  * whether to return a boolean or an array of values.
  */
-function mapCheckboxes ($input, type) {
+function mapCheckboxes($input, type) {
   if (type === Boolean) return $input.is(':checked')
-  return $input.filter(':checked').map(function (index, el) {
-    return $(el).val()
-  }).toArray()
+  return $input
+    .filter(':checked')
+    .map(function (index, el) {
+      return $(el).val()
+    })
+    .toArray()
 }
