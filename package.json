@@ -1,6 +1,6 @@
 {
   "author": "Ben Gourley",
-  "name": "@clocklimited/cf-map-form-to-object",
+  "name": "@jackfish/map-form-to-object",
   "description": "Map form field values onto object properties, via matching form field and schema property names",
   "version": "1.0.0",
   "tags": [],
@@ -8,6 +8,10 @@
     "map-form-to-object.js"
   ],
   "main": "map-form-to-object.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JackfishCMS/map-form-to-object.git"
+  },
   "scripts": {
     "lint": "eslint -f unix .",
     "pretest": "npm run lint",
